@@ -11,32 +11,34 @@ API para cadastro de vagas de trabalho.
 
 + Response 200 (application/json)
 
-        [
-            { 
-                "id": 1,
-                "title": "Faxineira",
-                "description": "Efetuar limpeza interna e externa do imóvel",
-                "employer": {"id": 1, "name": "Alessandra"},
-                "weekdays": true,
-                "weekends": false,
-                "hoursDay": 6,
-                "wage": 1500,
-                "previousExperience": true,
-                "obs": "Gostar de cães",
-            },
-            { 
-                "id": 2,
-                "title": "Jardineiro",
-                "description": "Manter os diversos tipos de plantas em ordem nos jardins, eliminar infestações de insetos etc",
-                "employer": {"id": 2, "name": "Rodrigo"},
-                "weekdays": true,
-                "weekends": false,
-                "hoursDay": 4,
-                "wage": 1000,
-                "previousExperience": true,
-                "obs": "Manter as árvores podadas e a grama baixa",
-            },
-        ]
+        {
+            "jobs": [
+                { 
+                    "id": 1,
+                    "title": "Faxineira",
+                    "description": "Efetuar limpeza interna e externa do imóvel",
+                    "employer": {"id": 1, "name": "Alessandra"},
+                    "weekdays": true,
+                    "weekends": false,
+                    "hoursDay": 6,
+                    "wage": 1500,
+                    "previousExperience": true,
+                    "obs": "Gostar de cães",
+                },
+                { 
+                    "id": 2,
+                    "title": "Jardineiro",
+                    "description": "Manter os diversos tipos de plantas em ordem nos jardins, eliminar infestações de insetos etc",
+                    "employer": {"id": 2, "name": "Rodrigo"},
+                    "weekdays": true,
+                    "weekends": false,
+                    "hoursDay": 4,
+                    "wage": 1000,
+                    "previousExperience": true,
+                    "obs": "Manter as árvores podadas e a grama baixa",
+                },
+            ]
+        }
 
 ### Create a New Job [POST]
 
@@ -45,15 +47,17 @@ Create a new job opportunity.
 + Request (application/json)
 
         { 
-            "title": "Mecânico",
-            "description": "Efetuar manutenção preventiva e corretiva em automóveis",
-            "employer": {"id": 2, "name": "Rodrigo"},
-            "weekdays": true,
-            "weekends": true,
-            "hoursDay": 8,
-            "wage": 3000,
-            "previousExperience": true,
-            "obs": "Experiência com injeção eletrônica e câmbio automático",
+            "job": {
+                "title": "Mecânico",
+                "description": "Efetuar manutenção preventiva e corretiva em automóveis",
+                "employer": {"id": 2, "name": "Rodrigo"},
+                "weekdays": true,
+                "weekends": true,
+                "hoursDay": 8,
+                "wage": 3000,
+                "previousExperience": true,
+                "obs": "Experiência com injeção eletrônica e câmbio automático",
+            }
         },
 
 + Response 201 (application/json)
@@ -65,8 +69,53 @@ Create a new job opportunity.
     + Body
 
             { 
-                "id": 3,
-                "title": "Mecânico",
+                "job": {
+                    "id": 3,
+                    "title": "Mecânico",
+                    "description": "Efetuar manutenção preventiva e corretiva em automóveis",
+                    "employer": {"id": 2, "name": "Rodrigo"},
+                    "weekdays": true,
+                    "weekends": true,
+                    "hoursDay": 8,
+                    "wage": 3000,
+                    "previousExperience": true,
+                    "obs": "Experiência com injeção eletrônica e câmbio automático",
+                }
+            }
+
+## Jobs [/jobs/{id}]
+
++ Parameters
+    + id (number) - ID of the job
+
+### List a Job [GET]
+
++ Response 200 (application/json)
+
+        {
+            jobs: { 
+                    "id": 1,
+                    "title": "Faxineira",
+                    "description": "Efetuar limpeza interna e externa do imóvel",
+                    "employer": {"id": 1, "name": "Alessandra"},
+                    "weekdays": true,
+                    "weekends": false,
+                    "hoursDay": 6,
+                    "wage": 1500,
+                    "previousExperience": true,
+                    "obs": "Gostar de cães",
+                },
+        }
+
+### Update a Job [PUT]
+
+Updates an existing job.
+
++ Request (application/json)
+
+        { 
+            "job": {
+                "title": "Mecânico de veículos leves",
                 "description": "Efetuar manutenção preventiva e corretiva em automóveis",
                 "employer": {"id": 2, "name": "Rodrigo"},
                 "weekdays": true,
@@ -76,3 +125,33 @@ Create a new job opportunity.
                 "previousExperience": true,
                 "obs": "Experiência com injeção eletrônica e câmbio automático",
             }
+        },
+
++ Response 200 (application/json)
+
+    + Headers
+
+            Location: /jobs/3
+
+    + Body
+
+            { 
+                "job": {
+                    "id": 3,
+                    "title": "Mecânico de veículos leves",
+                    "description": "Efetuar manutenção preventiva e corretiva em automóveis",
+                    "employer": {"id": 2, "name": "Rodrigo"},
+                    "weekdays": true,
+                    "weekends": true,
+                    "hoursDay": 8,
+                    "wage": 3000,
+                    "previousExperience": true,
+                    "obs": "Experiência com injeção eletrônica e câmbio automático",
+                }
+            }
+            
+### Delete a Job [DELETE]
+
+Deletes an existing job.
+
++ Response 204 (application/json)

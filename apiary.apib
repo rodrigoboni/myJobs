@@ -1,80 +1,78 @@
 FORMAT: 1A
-HOST: http://polls.apiblueprint.org/
+HOST: http://jobs.apiblueprint.org/
 
 # myJobs
 
-Polls is a simple API allowing consumers to view polls and vote in them.
+API para cadastro de vagas de trabalho.
 
-## Questions Collection [/questions]
+## Jobs [/jobs]
 
-### List All Questions [GET]
+### List All Jobs [GET]
 
 + Response 200 (application/json)
 
         [
-            {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "votes": 2048
-                    }, {
-                        "choice": "Python",
-                        "votes": 1024
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 512
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 256
-                    }
-                ]
-            }
+            { 
+                "id": 1,
+                "title": "Faxineira",
+                "description": "Efetuar limpeza interna e externa do imóvel",
+                "employer": {"id": 1, "name": "Alessandra"},
+                "weekdays": true,
+                "weekends": false,
+                "hoursDay": 6,
+                "wage": 1500,
+                "previousExperience": true,
+                "obs": "Gostar de cães",
+            },
+            { 
+                "id": 2,
+                "title": "Jardineiro",
+                "description": "Manter os diversos tipos de plantas em ordem nos jardins, eliminar infestações de insetos etc",
+                "employer": {"id": 2, "name": "Rodrigo"},
+                "weekdays": true,
+                "weekends": false,
+                "hoursDay": 4,
+                "wage": 1000,
+                "previousExperience": true,
+                "obs": "Manter as árvores podadas e a grama baixa",
+            },
         ]
 
-### Create a New Question [POST]
+### Create a New Job [POST]
 
-You may create your own question using this action. It takes a JSON
-object containing a question and a collection of answers in the
-form of choices.
+Create a new job opportunity.
 
 + Request (application/json)
 
-        {
-            "question": "Favourite programming language?",
-            "choices": [
-                "Swift",
-                "Python",
-                "Objective-C",
-                "Ruby"
-            ]
-        }
+        { 
+            "title": "Mecânico",
+            "description": "Efetuar manutenção preventiva e corretiva em automóveis",
+            "employer": {"id": 2, "name": "Rodrigo"},
+            "weekdays": true,
+            "weekends": true,
+            "hoursDay": 8,
+            "wage": 3000,
+            "previousExperience": true,
+            "obs": "Experiência com injeção eletrônica e câmbio automático",
+        },
 
 + Response 201 (application/json)
 
     + Headers
 
-            Location: /questions/2
+            Location: /jobs/3
 
     + Body
 
-            {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "votes": 0
-                    }, {
-                        "choice": "Python",
-                        "votes": 0
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 0
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 0
-                    }
-                ]
+            { 
+                "id": 3,
+                "title": "Mecânico",
+                "description": "Efetuar manutenção preventiva e corretiva em automóveis",
+                "employer": {"id": 2, "name": "Rodrigo"},
+                "weekdays": true,
+                "weekends": true,
+                "hoursDay": 8,
+                "wage": 3000,
+                "previousExperience": true,
+                "obs": "Experiência com injeção eletrônica e câmbio automático",
             }

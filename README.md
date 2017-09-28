@@ -1,2 +1,2 @@
 # myJobs
-Exemplo de implementação de api com nodejs + mongodb + ember.js
+Exemplo de implementação de api com nodejs + mongodb

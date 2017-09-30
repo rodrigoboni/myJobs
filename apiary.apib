@@ -42,8 +42,6 @@ API para cadastro de vagas de trabalho.
 
 ### Create a New Job [POST]
 
-Create a new job opportunity.
-
 + Request (application/json)
 
         { 
@@ -109,8 +107,6 @@ Create a new job opportunity.
 
 ### Update a Job [PUT]
 
-Updates an existing job.
-
 + Request (application/json)
 
         { 
@@ -152,6 +148,93 @@ Updates an existing job.
             
 ### Delete a Job [DELETE]
 
-Deletes an existing job.
++ Response 204 (application/json)
+
+## Employers [/employers]
+
+### List All Employers [GET]
+
++ Response 200 (application/json)
+
+        {
+            "employers": [
+                { 
+                    "id": 1,
+                    "name": "Alessandra",
+                },
+                { 
+                    "id": 2,
+                    "name": "Rodrigo",
+                },
+            ]
+        }
+
+### Create a New Employer [POST]
+
++ Request (application/json)
+
+        { 
+            "employer": {
+                "name": "José",
+            }
+        },
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /employers/3
+
+    + Body
+
+            { 
+                "job": {
+                    "id": 3,
+                    "name": "José",
+                }
+            }
+
+## Employers [/employers/{id}]
+
++ Parameters
+    + id (number) - ID of the employer
+
+### List a Employer [GET]
+
++ Response 200 (application/json)
+
+        {
+            employers: { 
+                    "id": 1,
+                    "name": "Alessandra",
+                },
+        }
+
+### Update a Employer [PUT]
+
++ Request (application/json)
+
+        { 
+            "employer": {
+                "name": "José da Silva",
+            }
+        },
+
++ Response 200 (application/json)
+
+    + Headers
+
+            Location: /employers/3
+
+    + Body
+
+            { 
+                "job": {
+                    "id": 3,
+                    "name": "José da Silva",
+                }
+            }
+            
+### Delete a Employer [DELETE]
 
 + Response 204 (application/json)

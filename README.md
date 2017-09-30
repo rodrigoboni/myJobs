@@ -10,3 +10,5 @@ npm install
 # Executar:
 npm start
 
+# Debug:
+DEBUG=myjobs:* npm start

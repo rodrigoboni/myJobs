@@ -40,6 +40,32 @@ API para cadastro de vagas de trabalho.
             ]
         }
 
+## Jobs [/jobs/{id}]
+
++ Parameters
+    + id (number) - ID of the job
+
+### List a Job [GET]
+
++ Response 200 (application/json)
+
+        {
+            jobs: { 
+                    "id": 1,
+                    "title": "Faxineira",
+                    "description": "Efetuar limpeza interna e externa do imóvel",
+                    "employer": 1,
+                    "weekdays": true,
+                    "weekends": false,
+                    "hoursDay": 6,
+                    "wage": 1500,
+                    "previousExperience": true,
+                    "obs": "Gostar de cães",
+                },
+        }
+
+## Jobs [/job]
+
 ### Create a New Job [POST]
 
 + Request (application/json)
@@ -81,30 +107,11 @@ API para cadastro de vagas de trabalho.
                 }
             }
 
-## Jobs [/jobs/{id}]
+## Jobs [/job/{id}]
 
 + Parameters
     + id (number) - ID of the job
-
-### List a Job [GET]
-
-+ Response 200 (application/json)
-
-        {
-            jobs: { 
-                    "id": 1,
-                    "title": "Faxineira",
-                    "description": "Efetuar limpeza interna e externa do imóvel",
-                    "employer": 1,
-                    "weekdays": true,
-                    "weekends": false,
-                    "hoursDay": 6,
-                    "wage": 1500,
-                    "previousExperience": true,
-                    "obs": "Gostar de cães",
-                },
-        }
-
+    
 ### Update a Job [PUT]
 
 + Request (application/json)
@@ -150,6 +157,9 @@ API para cadastro de vagas de trabalho.
 
 + Response 204 (application/json)
 
+
+
+
 ## Employers [/employers]
 
 ### List All Employers [GET]
@@ -169,31 +179,6 @@ API para cadastro de vagas de trabalho.
             ]
         }
 
-### Create a New Employer [POST]
-
-+ Request (application/json)
-
-        { 
-            "employer": {
-                "name": "José",
-            }
-        },
-
-+ Response 201 (application/json)
-
-    + Headers
-
-            Location: /employers/3
-
-    + Body
-
-            { 
-                "job": {
-                    "id": 3,
-                    "name": "José",
-                }
-            }
-
 ## Employers [/employers/{id}]
 
 + Parameters
@@ -210,13 +195,45 @@ API para cadastro de vagas de trabalho.
                 },
         }
 
-### Update a Employer [PUT]
+## Employers [/employer]
+
+### Create a New Employer [POST]
 
 + Request (application/json)
 
         { 
             "employer": {
-                "name": "José da Silva",
+                "title": "José da Silva",
+            }
+        },
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /employers/3
+
+    + Body
+
+            { 
+                "employer": {
+                    "id": 3,
+                    "name": "José da Silva",
+                }
+            }
+
+## Employers [/employer/{id}]
+
++ Parameters
+    + id (number) - ID of the employer
+    
+### Update a Employer [PUT]
+
++ Request (application/json)
+
+        { 
+            "Employer": {
+                "name": "José Silva Santos",
             }
         },
 
@@ -229,9 +246,9 @@ API para cadastro de vagas de trabalho.
     + Body
 
             { 
-                "job": {
+                "employer": {
                     "id": 3,
-                    "name": "José da Silva",
+                    "name": "José Silva Santos",
                 }
             }
             

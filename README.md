@@ -30,7 +30,7 @@ Mongodb 3.4
 # Notas sobre o projeto:
 -Acessar a rota raíz / index para obter a documentação da API
 
--Utilizar a extensão "Postman" do Chrome para consumir a API, selecionando a opção "x-www-form-urlencoded" como formato de dados ao definir o corpo do request.
+-Ao utilizar o app "Postman" p/ consumir a API selecione a opção "x-www-form-urlencoded" como formato de dados ao definir o corpo do request.
 
 -Durante o tratamento dos requests é exibido no console do servidor onde a API está sendo executada detalhes dos parâmetros, valores retornados etc.
 

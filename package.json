@@ -1,0 +1,20 @@
+{
+  "name": "myjobs",
+  "version": "1.0.0",
+  "description": "Exemplo de implementação de api com nodejs + mongodb",
+  "private": true,
+  "author": {
+    "name": "Rodrigo M Boni",
+    "email": "rodrigoboni@gmail.com"
+  },
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "body-parser": "~1.17.1",
+    "debug": "~2.6.3",
+    "express": "~4.15.2",
+    "mongoose": "^4.11.13",
+    "morgan": "~1.8.1"
+  }
+}

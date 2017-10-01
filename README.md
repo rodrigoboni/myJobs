@@ -58,3 +58,9 @@ Mongodb
   -*previousExperience* Indica se o candidato deve ter experência prévia na função
 
   -*obs* Detalhes e notas sobre a vaga
+
+
+# Notas sobre o projeto:
+-Durante o tratamento dos requests é exibido no console do servidor onde a API está sendo executada detalhes dos parâmetros, valores retornados etc.
+
+-Utilizar a extensão "Postman" do Chrome para consumir a API, selecionando a opção "x-www-form-urlencoded" como formato de dados ao definir o corpo do request.

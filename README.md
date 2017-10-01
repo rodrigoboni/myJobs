@@ -13,7 +13,9 @@ Mongodb
 npm install
 
 # Executar:
+sudo service mongod start
 npm start
 
 # Debug:
+sudo service mongod start
 DEBUG=myjobs:* npm start

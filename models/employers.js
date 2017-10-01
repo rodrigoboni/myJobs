@@ -1,5 +1,5 @@
 /**
- * Job model
+ * Employer model
  */
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
@@ -8,21 +8,15 @@ const Schema = mongoose.Schema;
  * Schema
  */
 const modelSchema = new Schema({
-  title: { type: String, required: true },
-  description: { type: String, required: true },
-  _employer: { type: Schema.Types.ObjectId, required: true, ref: 'employers' },
-  weekdays: { type: Boolean, default: true },
-  weekends: { type: Boolean, default: false },
-  hoursDay: { type: Number, required: true },
-  wage: { type: Number, required: true },
-  previousExperience: { type: Boolean, default: false },
+  name: { type: String, required: true },
+  city: { type: String, required: true },
   obs: { type: String },
 });
 
 /**
  * Model
  */
-const Model = mongoose.model('jobs', modelSchema);
+const Model = mongoose.model('employers', modelSchema);
 
 /**
  * Model methods
@@ -62,7 +56,7 @@ module.exports = {
   getAll: (e) => {
     const promise = new Promise((resolve, reject) => {
       // find without query to return all records
-      Model.find({}).populate('_employer').exec((err, results) => {
+      Model.find({}, (err, results) => {
         if (err) {
           // reject promise on error
           reject(err);
@@ -88,7 +82,7 @@ module.exports = {
   get: (e, id) => {
     const promise = new Promise((resolve, reject) => {
       // find querying by id to return one record
-      Model.find({ _id: id }).populate('_employer').exec((err, result) => {
+      Model.find({ _id: id }, (err, result) => {
         if (err) {
           // reject promise on error
           reject(err);

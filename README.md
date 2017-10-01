@@ -30,30 +30,31 @@ Mongodb
 # Notas sobre os modelos de dados:
 -**Employers**
 
-  -__name__ Nome do empregador
+  -*name* Nome do empregador
 
-  -__city__ Cidade do empregador, para filtrar empregadores por cidade / região etc
+  -*city* Cidade do empregador, para filtrar empregadores por cidade / região etc
 
-  -__obs__ Notas do empregador, como detalhes de exigências etc
+  -*obs* Notas do empregador, como detalhes de exigências etc
+
+
 
 
 -**Jobs**
 
-  -__title__ Título da vaga / palavras chave p/ identificar a vaga
+  -*title* Título da vaga / palavras chave p/ identificar a vaga
 
-  -__description__ Descrição da vaga, indicando de forma resumida o trabalho solicitado
+  -*description* Descrição da vaga, indicando de forma resumida o trabalho solicitado
 
-  -___employer__ Empregador que está solicitando a vaga (cada empregador pode definir n vagas)
+  -*_employer* Empregador que está solicitando a vaga (cada empregador pode definir n vagas)
 
-  -__weekdays__ Indica se o trabalho deve ser realizado em dias de semana
+  -*weekdays* Indica se o trabalho deve ser realizado em dias de semana
 
-  -__weekends__ Indica se o trabalho deve ser realizado aos finais de semana
+  -*weekends* Indica se o trabalho deve ser realizado aos finais de semana
 
-  -__hoursDay__ Indica a carga horária em horas por dia de trabalho
+  -*hoursDay* Indica a carga horária em horas por dia de trabalho
 
-  -__wage__ Indica o valor pago para trabalhar a quantidade de horas diárias em dias de semana e / ou finais de semana
+  -*wage* Indica o valor pago para trabalhar a quantidade de horas diárias em dias de semana e / ou finais de semana
 
-  -__previousExperience__ Indica se o candidato deve ter experência prévia na função
+  -*previousExperience* Indica se o candidato deve ter experência prévia na função
 
-  -__obs__ Detalhes e notas sobre a vaga
-  
+  -*obs* Detalhes e notas sobre a vaga

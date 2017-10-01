@@ -11,38 +11,80 @@ API para cadastro de vagas de trabalho.
 
 + Response 200 (application/json)
 
+        [
+            {
+                "_id": "59d1285f2c1991399b4ab718",
+                "title": "lavador de carros",
+                "description": "lavador de automóveis leves",
+                "_employer": {
+                    "_id": "59d12153c97a443350640a9b",
+                    "name": "Rodrigo",
+                    "city": "São Carlos",
+                    "obs": "de boa mas exigente",
+                },
+                "hoursDay": 8,
+                "wage": 2500,
+                "obs": "limpeza interna, externa e polimento ",
+                "previousExperience": true,
+                "weekends": true,
+                "weekdays": true
+            },
+            {
+                "_id": "59d128a92c1991399b4ab719",
+                "title": "faxineira",
+                "description": "limpeza de residências",
+                "_employer": {
+                    "_id": "59d12131c97a443350640a9a",
+                    "name": "Alessandra",
+                    "city": "Araraquara",
+                    "obs": "exigente e mala",
+                },
+                "hoursDay": 8,
+                "wage": 1500,
+                "obs": "gostar de cães",
+                "previousExperience": true,
+                "weekends": false,
+                "weekdays": true
+            }
+        ]
+
+### Create a New Job [POST]
+
++ Request (application/json)
+
         {
-            "jobs": [
-                { 
-                    "id": 1,
-                    "title": "Faxineira",
-                    "description": "Efetuar limpeza interna e externa do imóvel",
-                    "employer": 1,
-                    "weekdays": true,
-                    "weekends": false,
-                    "hoursDay": 6,
-                    "wage": 1500,
-                    "previousExperience": true,
-                    "obs": "Gostar de cães",
-                    active: true,
-                },
-                { 
-                    "id": 2,
-                    "title": "Jardineiro",
-                    "description": "Manter os diversos tipos de plantas em ordem nos jardins, eliminar infestações de insetos etc",
-                    "employer": 2,
-                    "weekdays": true,
-                    "weekends": false,
-                    "hoursDay": 4,
-                    "wage": 1000,
-                    "previousExperience": true,
-                    "obs": "Manter as árvores podadas e a grama baixa",
-                    active: true,
-                },
-            ]
-        }
+            "title": "mecânico",
+            "description": "mecânico de automóveis leves",
+            "_employer": "59d12153c97a443350640a9b",
+            "hoursDay": 8,
+            "wage": 3600,
+            "obs": "manutenção preventia e corretiva em geral",
+            "previousExperience": true,
+            "weekends": false,
+            "weekdays": true
+        },
+
++ Response 201 (application/json)
+
+    + Body
+
+            {
+                "_id": "59d1285f2c1991399b4ab718",
+                "title": "mecânico",
+                "description": "mecânico de automóveis leves",
+                "_employer": "59d12153c97a443350640a9b",
+                "hoursDay": 8,
+                "wage": 3600,
+                "obs": "manutenção preventia e corretiva em geral",
+                "previousExperience": true,
+                "weekends": false,
+                "weekdays": true
+            },
 
 ## Jobs [/jobs/{id}]
+
+On update response the attributes "n" and "nModified" show the number of modified attributes,
+and the attribute "ok" shows if the update was successfull.
 
 + Parameters
     + id (number) - ID of the job
@@ -52,120 +94,45 @@ API para cadastro de vagas de trabalho.
 + Response 200 (application/json)
 
         {
-            jobs: { 
-                    "id": 1,
-                    "title": "Faxineira",
-                    "description": "Efetuar limpeza interna e externa do imóvel",
-                    "employer": 1,
-                    "weekdays": true,
-                    "weekends": false,
-                    "hoursDay": 6,
-                    "wage": 1500,
-                    "previousExperience": true,
-                    "obs": "Gostar de cães",
-                    active: true,
-                },
-        }
-
-## Jobs [/job]
-
-### Create a New Job [POST]
-
-+ Request (application/json)
-
-        { 
-            "job": {
-                "title": "Mecânico",
-                "description": "Efetuar manutenção em automóveis",
-                "employer": 2,
-                "weekdays": true,
-                "weekends": true,
-                "hoursDay": 8,
-                "wage": 3000,
-                "previousExperience": true,
-                "obs": "",
-                active: true,
-            }
+            "_id": "59d1285f2c1991399b4ab718",
+            "title": "lavador de carros",
+            "description": "lavador de automóveis leves",
+            "_employer": {
+                "_id": "59d12153c97a443350640a9b",
+                "name": "Rodrigo",
+                "city": "São Carlos",
+                "obs": "de boa mas exigente",
+            },
+            "hoursDay": 8,
+            "wage": 2500,
+            "obs": "limpeza interna, externa e polimento ",
+            "previousExperience": true,
+            "weekends": true,
+            "weekdays": true
         },
 
-+ Response 201 (application/json)
-
-    + Headers
-
-            Location: /jobs/3
-
-    + Body
-
-            { 
-                "job": {
-                    "id": 3,
-                    "title": "Mecânico",
-                    "description": "Efetuar manutenção em automóveis",
-                    "employer": 2,
-                    "weekdays": true,
-                    "weekends": true,
-                    "hoursDay": 8,
-                    "wage": 3000,
-                    "previousExperience": true,
-                    "obs": "",
-                    active: true,
-                }
-            }
-
-## Jobs [/job/{id}]
-
-+ Parameters
-    + id (number) - ID of the job
-    
 ### Update a Job [PUT]
 
 + Request (application/json)
 
-        { 
-            "job": {
-                "title": "Mecânico de veículos leves",
+            {
                 "description": "Efetuar manutenção preventiva e corretiva em automóveis",
-                "employer": 2,
-                "weekdays": true,
-                "weekends": true,
-                "hoursDay": 8,
-                "wage": 3000,
-                "previousExperience": true,
-                "obs": "Experiência com injeção eletrônica e câmbio automático",
-                active: true,
-            }
-        },
+                "obs": "Experiência com injeção eletrônica e câmbio automático"
+            },
 
 + Response 200 (application/json)
 
-    + Headers
-
-            Location: /jobs/3
-
     + Body
 
-            { 
-                "job": {
-                    "id": 3,
-                    "title": "Mecânico de veículos leves",
-                    "description": "Efetuar manutenção preventiva e corretiva em automóveis",
-                    "employer": 2,
-                    "weekdays": true,
-                    "weekends": true,
-                    "hoursDay": 8,
-                    "wage": 3000,
-                    "previousExperience": true,
-                    "obs": "Experiência com injeção eletrônica e câmbio automático",
-                    active: true,
-                }
+            {
+                "n": 2,
+                "nModified": 2,
+                "ok": 1
             }
             
 ### Delete a Job [DELETE]
 
 + Response 204 (application/json)
-
-
-
 
 ## Employers [/employers]
 
@@ -173,22 +140,46 @@ API para cadastro de vagas de trabalho.
 
 + Response 200 (application/json)
 
-        {
-            "employers": [
-                { 
-                    "id": 1,
-                    "name": "Alessandra",
-                    active: true,
-                },
-                { 
-                    "id": 2,
-                    "name": "Rodrigo",
-                    active: true,
-                },
-            ]
-        }
+        [
+            {
+                "_id": "59d1285f2c1991399b4ab718",
+                "name": "Alessandra",
+                "city": "Araraquara",
+                "obs": "exigente",
+            },
+            {
+                "_id": "59d128a92c1991399b4ab719",
+                "name": "Rodrigo",
+                "city": "São Carlos",
+                "obs": "de boa",
+            }
+        ]
+
+### Create a New Employer [POST]
+
++ Request (application/json)
+
+            {
+                "name": "Zé roela",
+                "city": "São Paulo",
+                "obs": "mala",
+            }
+
++ Response 201 (application/json)
+
+    + Body
+
+            {
+                "_id": "59d1285f2c1991399b4ab718",
+                "name": "Zé roela",
+                "city": "São Paulo",
+                "obs": "mala",
+            },
 
 ## Employers [/employers/{id}]
+
+On update response the attributes "n" and "nModified" show the number of modified attributes,
+and the attribute "ok" shows if the update was successfull.
 
 + Parameters
     + id (number) - ID of the employer
@@ -197,73 +188,29 @@ API para cadastro de vagas de trabalho.
 
 + Response 200 (application/json)
 
-        {
-            employers: { 
-                    "id": 1,
-                    "name": "Alessandra",
-                    active: true,
-                },
-        }
-
-## Employers [/employer]
-
-### Create a New Employer [POST]
-
-+ Request (application/json)
-
-        { 
-            "employer": {
-                "title": "José da Silva",
-                active: true,
-            }
-        },
-
-+ Response 201 (application/json)
-
-    + Headers
-
-            Location: /employers/3
-
-    + Body
-
-            { 
-                "employer": {
-                    "id": 3,
-                    "name": "José da Silva",
-                    active: true,
-                }
+            {
+                "_id": "59d128a92c1991399b4ab719",
+                "name": "Rodrigo",
+                "city": "São Carlos",
+                "obs": "de boa",
             }
 
-## Employers [/employer/{id}]
-
-+ Parameters
-    + id (number) - ID of the employer
-    
 ### Update a Employer [PUT]
 
 + Request (application/json)
 
-        { 
-            "Employer": {
-                "name": "José Silva Santos",
-                active: true,
-            }
-        },
+            {
+                "city": "Américo Brasiliense"
+            },
 
 + Response 200 (application/json)
 
-    + Headers
-
-            Location: /employers/3
-
     + Body
 
-            { 
-                "employer": {
-                    "id": 3,
-                    "name": "José Silva Santos",
-                    active: true,
-                }
+            {
+                "n": 2,
+                "nModified": 2,
+                "ok": 1
             }
             
 ### Delete a Employer [DELETE]

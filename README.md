@@ -2,7 +2,7 @@
 **Exemplo de implementação de api com nodejs + mongodb**
 
 # Documentção API
-[Apiary](http://docs.myjobs2.apiary.io)
+[Apiary - http://docs.myjobs2.apiary.io](http://docs.myjobs2.apiary.io)
 
 # Clonar o repositório:
 `git clone https://github.com/rodrigoboni/myJobs.git`
@@ -10,9 +10,9 @@
 # Pré requisitos:
 Npm
 
-Node.js
+Node.js 6.x
 
-Mongodb
+Mongodb 3.4
 
 # Dependências:
 `npm install`
